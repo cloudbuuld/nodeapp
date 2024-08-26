@@ -1,0 +1,14 @@
+steps:
+- name: 'gcr.io/cloud-builders/git'
+  args: ['clone', 'https://github.com/cloudbuuld/nodeapp.git']
+
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/your-image-name', '.']
+
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/your-image-name']
+
+substitutions:
+    #GCP Specific configuration. Please DON'T change anything
+    _PROJECT: cloudbuild-poc-433710
+    _ZONE: us-east1 
