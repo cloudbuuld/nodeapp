@@ -3,10 +3,10 @@ steps:
   args: ['clone', 'https://github.com/cloudbuuld/nodeapp.git']
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/your-image-name', '.']
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/cloudbuild-poc-433710/my-cloud-build/nodeapp', '.']
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/$PROJECT_ID/your-image-name']
+  args: ['push', 'us-central1-docker.pkg.dev/cloudbuild-poc-433710/my-cloud-build/nodeapp']
 
 substitutions:
     #GCP Specific configuration. Please DON'T change anything
