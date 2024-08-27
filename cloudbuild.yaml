@@ -14,7 +14,7 @@ substitutions:
     _ZONE: asia-south1
 logsBucket: gs://node-logs-bucket/
 options:
-  logging: CLOUD_LOGGING_ONLY
+  defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
   #logging: GCS_ONLY
  # logsBucket: gs://node-logs-bucket/
  
