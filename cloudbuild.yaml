@@ -14,4 +14,4 @@ substitutions:
     _ZONE: us-east1 
 options:
   logging: GCS_ONLY
-  
+  logsBucket: gs://node-logs-bucket/
