@@ -11,7 +11,7 @@ steps:
 substitutions:
     #GCP Specific configuration. Please DON'T change anything
     _PROJECT: cloudbuild-poc-433710
-    _ZONE: us-east1 
+    _ZONE: asia-south1
 logsBucket: gs://node-logs-bucket/
 options:
   logging: GCS_ONLY
