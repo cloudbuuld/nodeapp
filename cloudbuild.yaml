@@ -12,6 +12,6 @@ substitutions:
     #GCP Specific configuration. Please DON'T change anything
     _PROJECT: cloudbuild-poc-433710
     _ZONE: us-east1 
-    options:
+options:
   logging: GCS_ONLY
   logsBucket: gs://node-logs-bucket/
