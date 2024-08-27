@@ -3,7 +3,10 @@ steps:
   args: ['clone', 'https://github.com/cloudbuuld/nodeapp.git']
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/cloudbuild-poc-433710/github.com/cloudbuuld/nodeapp:$COMMIT_SHA \ '.']
+  args: 
+    - 'build'
+    - '-t'
+    - 'gcr.io/cloudbuild-poc-433710/github.com/cloudbuuld/nodeapp:$COMMIT_SHA'
 
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/cloudbuild-poc-433710/github.com/cloudbuuld/nodeapp:$COMMIT_SHA']
