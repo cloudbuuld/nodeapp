@@ -15,7 +15,7 @@ substitutions:
     #GCP Specific configuration. Please DON'T change anything
     _PROJECT: cloudbuild-poc-433710
     _ZONE: asia-south1
-logsBucket: gs://node-logs-bucket/
+logsBucket: gs://795638139577-asia-south1-cloudbuild-logs/
 options:
   defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
   #logging: GCS_ONLY
