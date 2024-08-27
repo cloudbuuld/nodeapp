@@ -13,6 +13,7 @@ substitutions:
     _PROJECT: cloudbuild-poc-433710
     _ZONE: asia-south1
 options:
-  logging: GCS_ONLY
-  logsBucket: gs://node-logs-bucket/
+  logging: CLOUD_LOGGING_ONLY
+  #logging: GCS_ONLY
+ # logsBucket: gs://node-logs-bucket/
  
