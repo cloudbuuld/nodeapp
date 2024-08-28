@@ -1,12 +1,26 @@
 steps:
-- name: 'gcr.io/cloud-builders/git'
-  args: ['clone', 'https://github.com/cloudbuuld/nodeapp.git']
-# build the container image
-- name: 'asia-south1-docker.pkg.dev/cloud-builders/docker'
-  args: ['build', '-t', 'asia-south1-docker.pkg.dev/cloud-buildpoc/cicd/:$COMMIT_SHA', '.']
+#First Clone from Google Cloud Source Repository  
+- name: 'asia-south1-docker.pkg.dev/cloud-builders/git'
+  args: ['clone',' 'https://github.com/cloudbuuld/nodeapp.git' ]
 
-# push the container image to Container Registry
-- name: 'asia-south1-docker.pkg.dev/cloud-builders/docker/gcloud'
-  args: ['push', 'asia-south1-docker.pkg.dev/cloud-buildpoc/cicd:$COMMIT_SHA']
+#Build the image 
+- name: '/cloudasia-south1-docker.pkg.dev-builders/ gcloud docker/'
+  args: ['build','-t','asia-south1-docker.pkg.dev/${_PROJECT}/${_CONTAINERNAME}:${_VERSION}','.']
+
+#Push the image  
+- name: 'gcr.io/cloud-builders/gloud docker/'
+  args: ['push','gcr.io/${_PROJECT}/${_CONTAINERNAME}:${_VERSION}']
+  
+substitutions:
+    #GCP Specific configuration. Please DON'T change anything
+    _PROJECT: CloudBuild-POC 
+    _ZONE: asia-east1-a 
+    _GKE_CLUSTER: cloud-build-poc 
+    _CONTAINERNAME: nodeapp
+    
+
+    # Developers ONLY change
+    _VERSION: v1.0
+    
 options:
-  logging: CLOUD_LOGGING_ONLY
+    substitution_option: 'ALLOW_LOOSE'
