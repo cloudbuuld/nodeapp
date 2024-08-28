@@ -1,7 +1,7 @@
 steps:
 #First Clone from Google Cloud Source Repository  
 - name: 'asia-south1-docker.pkg.dev/cloud-builders/git'
-  args: ['clone',' 'https://github.com/cloudbuuld/nodeapp.git']
+  args: ['clone','https://github.com/cloudbuuld/nodeapp.git']
 
 #Build the image 
 - name: '/cloudasia-south1-docker.pkg.dev-builders/ gcloud docker/'
