@@ -8,4 +8,5 @@ steps:
 # push the container image to Container Registry
 - name: 'asia-south1-docker.pkg.dev/cloud-builders/docker/gcloud'
   args: ['push', 'asia-south1-docker.pkg.dev/cloud-buildpoc/cicd:$COMMIT_SHA']
-
+options:
+  logging: CLOUD_LOGGING_ONLY
