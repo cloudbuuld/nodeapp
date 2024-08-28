@@ -1,23 +1,11 @@
 steps:
 - name: 'gcr.io/cloud-builders/git'
   args: ['clone', 'https://github.com/cloudbuuld/nodeapp.git']
+# build the container image
+- name: 'asia-south1-docker.pkg.dev/cloud-builders/docker'
+  args: ['build', '-t', 'asia-south1-docker.pkg.dev/cloud-buildpoc/cicd/:$COMMIT_SHA', '.']
 
-- name: 'gcr.io/cloud-builders/docker'
-  args: 
-    - 'build'
-    - '-t'
-    - 'gcr.io/cloudbuild-poc-433710/github.com/cloudbuuld/nodeapp:$COMMIT_SHA'
+# push the container image to Container Registry
+- name: 'asia-south1-docker.pkg.dev/cloud-builders/docker/gcloud'
+  args: ['push', 'asia-south1-docker.pkg.dev/cloud-buildpoc/cicd:$COMMIT_SHA']
 
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/cloudbuild-poc-433710/github.com/cloudbuuld/nodeapp:$COMMIT_SHA']
-
-substitutions:
-    #GCP Specific configuration. Please DON'T change anything
-    _PROJECT: cloudbuild-poc-433710
-    _ZONE: asia-south1
-logsBucket: gs://795638139577-asia-south1-cloudbuild-logs/
-options:
-  defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
-  #logging: GCS_ONLY
- # logsBucket: gs://node-logs-bucket/
- 
